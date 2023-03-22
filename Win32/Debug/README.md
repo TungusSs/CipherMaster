@@ -1,1 +1,1 @@
-# Folder that contains debug version of program woth .exe extension
+# Folder that contains debug version of program with .exe extension
