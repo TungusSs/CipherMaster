@@ -87,6 +87,8 @@ type
 
 var
   Form2: TForm2;
+  ExePath: string;
+  ConnStr: string;
 
 implementation
 
@@ -417,6 +419,9 @@ end;
 
 procedure TForm2.FormCreate(Sender: TObject);
 begin
+  ExePath := ExtractFilePath(ParamStr(0));
+  ConnStr := 'Provider=Microsoft.Jet.OLEDB.4.0;Data Source="' + ExePath + 'Data\data_clear.mdb";Persist Security Info=False';
+  ADOConnection1.ConnectionString := ConnStr;
   inherited;
   FSelectedRowIndex := -1;
 end;
