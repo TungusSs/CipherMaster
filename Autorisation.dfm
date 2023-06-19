@@ -2,8 +2,8 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = #1040#1074#1090#1086#1088#1080#1079#1072#1094#1080#1103
-  ClientHeight = 265
-  ClientWidth = 386
+  ClientHeight = 264
+  ClientWidth = 382
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -2251,8 +2251,8 @@ object Form1: TForm1
   object ADOConnection1: TADOConnection
     ConnectionString = 
       'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\tungu\OneD' +
-      'rive\'#1056#1072#1073#1086#1095#1080#1081' '#1089#1090#1086#1083'\MyCursach2023\Data\data.mdb;Persist Security I' +
-      'nfo=False'
+      'rive\'#1056#1072#1073#1086#1095#1080#1081' '#1089#1090#1086#1083'\CipherMaster-master\Data\data_clear.mdb;Persis' +
+      't Security Info=False'
     LoginPrompt = False
     Provider = 'Microsoft.Jet.OLEDB.4.0'
     Left = 32

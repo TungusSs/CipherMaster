@@ -117,8 +117,8 @@ object Form4: TForm4
   object ADOConnection1: TADOConnection
     ConnectionString = 
       'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\tungu\OneD' +
-      'rive\'#1056#1072#1073#1086#1095#1080#1081' '#1089#1090#1086#1083'\MyCursach2023\Data\data.mdb;Persist Security I' +
-      'nfo=False'
+      'rive\'#1056#1072#1073#1086#1095#1080#1081' '#1089#1090#1086#1083'\CipherMaster-master\Data\data_clear.mdb;Persis' +
+      't Security Info=False'
     LoginPrompt = False
     Provider = 'Microsoft.Jet.OLEDB.4.0'
     Left = 264
