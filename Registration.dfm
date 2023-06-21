@@ -10,7 +10,8 @@ object Form4: TForm4
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
-  Position = poScreenCenter
+  Position = poDesktopCenter
+  OnCreate = FormCreate
   TextHeight = 15
   object Label1: TLabel
     Left = 96
@@ -63,6 +64,7 @@ object Form4: TForm4
     Font.Style = []
     ParentFont = False
     TabOrder = 0
+    OnKeyPress = edtNameKeyPress
   end
   object edtPassword: TEdit
     Left = 75
@@ -77,6 +79,7 @@ object Form4: TForm4
     ParentFont = False
     PasswordChar = #8226
     TabOrder = 1
+    OnKeyPress = edtPasswordKeyPress
   end
   object btnRegister: TButton
     Left = 75
@@ -99,6 +102,7 @@ object Form4: TForm4
     Font.Style = []
     ParentFont = False
     TabOrder = 3
+    OnKeyPress = edtLoginKeyPress
   end
   object CheckBox1: TCheckBox
     Left = 75
@@ -117,8 +121,8 @@ object Form4: TForm4
   object ADOConnection1: TADOConnection
     ConnectionString = 
       'Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\tungu\OneD' +
-      'rive\'#1056#1072#1073#1086#1095#1080#1081' '#1089#1090#1086#1083'\MyCursach2023\Data\data.mdb;Persist Security I' +
-      'nfo=False'
+      'rive\'#1056#1072#1073#1086#1095#1080#1081' '#1089#1090#1086#1083'\CipherMaster-master\Data\data_clear.mdb;Persis' +
+      't Security Info=False'
     LoginPrompt = False
     Provider = 'Microsoft.Jet.OLEDB.4.0'
     Left = 264

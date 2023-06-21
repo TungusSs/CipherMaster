@@ -31,6 +31,11 @@ type
     procedure FormMouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure CheckBox1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure edtLoginKeyPress(Sender: TObject; var Key: Char);
+    procedure edtPasswordKeyPress(Sender: TObject; var Key: Char);
+  protected
+    procedure CreateParams(var Params: TCreateParams); override;
   private
     { Private declarations }
   public
@@ -48,6 +53,34 @@ implementation
 
 // Подключаем файл с ресурсами формы
 {$R *.dfm}
+
+
+procedure TForm1.CreateParams(var Params: TCreateParams);
+begin
+  inherited;
+  Params.ExStyle := Params.ExStyle or WS_EX_APPWINDOW;
+  Params.WndParent := 0;
+end;
+
+
+procedure TForm1.edtLoginKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    Key := #0;
+    edtPassword.SetFocus;
+  end;
+end;
+
+
+procedure TForm1.edtPasswordKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    Key := #0;
+    btnLogin.Click;
+  end;
+end;
 
 // Метод, который вызывается при нажатии на кнопку "Вход"
 procedure TForm1.btnLoginClick(Sender: TObject);
@@ -103,6 +136,15 @@ begin
 end;
 
 // Обработчик события нажатия кнопки мыши на форме
+procedure TForm1.FormCreate(Sender: TObject);
+begin
+  ADOConnection1.Connected := False;
+  ADOConnection1.ConnectionString := 'Provider=Microsoft.Jet.OLEDB.4.0;' +
+                                    'Data Source=' + GetCurrentDir + '\Data\data_clear.mdb;' +
+                                    'Persist Security Info=False;';
+  ADOConnection1.Connected := True;
+end;
+
 procedure TForm1.FormMouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
