@@ -21,6 +21,12 @@ type
     CheckBox1: TCheckBox;
     procedure btnRegisterClick(Sender: TObject);
     procedure CheckBox1Click(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure edtNameKeyPress(Sender: TObject; var Key: Char);
+    procedure edtLoginKeyPress(Sender: TObject; var Key: Char);
+    procedure edtPasswordKeyPress(Sender: TObject; var Key: Char);
+  protected
+    procedure CreateParams(var Params: TCreateParams); override;
   private
     { Private declarations }
   public
@@ -94,6 +100,50 @@ begin
     edtPassword.PasswordChar := #0
   else
     edtPassword.PasswordChar := '•';
+end;
+
+procedure TForm4.FormCreate(Sender: TObject);
+begin
+  ADOConnection1.Connected := False;
+  ADOConnection1.ConnectionString := 'Provider=Microsoft.Jet.OLEDB.4.0;' +
+                                    'Data Source=' + GetCurrentDir + '\Data\data_clear.mdb;' +
+                                    'Persist Security Info=False;';
+  ADOConnection1.Connected := True;
+end;
+
+procedure TForm4.CreateParams(var Params: TCreateParams);
+begin
+  inherited;
+  Params.ExStyle := Params.ExStyle or WS_EX_APPWINDOW;
+  Params.WndParent := 0;
+end;
+
+
+procedure TForm4.edtLoginKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    Key := #0;
+    edtPassword.SetFocus;
+  end;
+end;
+
+procedure TForm4.edtNameKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    Key := #0;
+    edtLogin.SetFocus;
+  end;
+end;
+
+procedure TForm4.edtPasswordKeyPress(Sender: TObject; var Key: Char);
+begin
+  if Key = #13 then
+  begin
+    Key := #0;
+    btnRegister.Click;
+  end;
 end;
 
 end.

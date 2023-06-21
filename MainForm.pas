@@ -70,6 +70,8 @@ type
     procedure Button6Click(Sender: TObject);
     procedure DBGrid2CellClick(Column: TColumn);
     procedure ComboBox1Select(Sender: TObject);
+  protected
+    procedure CreateParams(var Params: TCreateParams); override;
   private
     FUserName: string;
     FUserRole: string;
@@ -91,6 +93,13 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TForm2.CreateParams(var Params: TCreateParams);
+begin
+  inherited;
+  Params.ExStyle := Params.ExStyle or WS_EX_APPWINDOW;
+  Params.WndParent := 0;
+end;
 
 // Процедура, вызываемая при клике на кнопку "AccountShow"
 procedure TForm2.AccountShowClick(Sender: TObject);
@@ -152,6 +161,18 @@ procedure TForm2.brnAddShifrClick(Sender: TObject);
 begin
   ShifrAdd.Visible := True; // делаем панель видимой
   ShifrAdd.BringToFront; // вызываем панель на передний план
+
+  if ComboBox1.Text = 'Цезарь' then
+  begin
+    // Показываем компонент для ввода сдвига
+    NumberBox1.Visible := True;
+    // Показываем метку с подсказкой
+    Label11.Visible := True;
+    // Скрываем компонент для ввода ключа
+    Edit3.Visible := False;
+    // Скрываем метку с подсказкой для ключа
+    Label12.Visible := False;
+  end;
 end;
 
 procedure TForm2.btnDeleteShifrClick(Sender: TObject);
@@ -417,6 +438,12 @@ end;
 
 procedure TForm2.FormCreate(Sender: TObject);
 begin
+  ADOConnection1.Connected := False;
+  ADOConnection1.ConnectionString := 'Provider=Microsoft.Jet.OLEDB.4.0;' +
+                                    'Data Source=' + GetCurrentDir + '\Data\data_clear.mdb;' +
+                                    'Persist Security Info=False;';
+  ADOConnection1.Connected := True;
+
   inherited;
   FSelectedRowIndex := -1;
 end;

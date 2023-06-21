@@ -2,15 +2,16 @@ object Form1: TForm1
   Left = 0
   Top = 0
   Caption = #1040#1074#1090#1086#1088#1080#1079#1072#1094#1080#1103
-  ClientHeight = 264
-  ClientWidth = 382
+  ClientHeight = 262
+  ClientWidth = 374
   Color = clWhite
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
-  Position = poScreenCenter
+  Position = poDesktopCenter
+  OnCreate = FormCreate
   OnMouseDown = FormMouseDown
   OnMouseUp = FormMouseUp
   TextHeight = 15
@@ -2201,6 +2202,7 @@ object Form1: TForm1
     Font.Style = []
     ParentFont = False
     TabOrder = 0
+    OnKeyPress = edtLoginKeyPress
   end
   object edtPassword: TEdit
     Left = 200
@@ -2215,6 +2217,7 @@ object Form1: TForm1
     ParentFont = False
     PasswordChar = #8226
     TabOrder = 1
+    OnKeyPress = edtPasswordKeyPress
   end
   object btnLogin: TButton
     Left = 200
