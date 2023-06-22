@@ -1,6 +1,8 @@
 object Form4: TForm4
   Left = 0
   Top = 0
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
   Caption = #1056#1077#1075#1080#1089#1090#1088#1072#1094#1080#1103
   ClientHeight = 275
   ClientWidth = 324

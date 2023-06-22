@@ -1,6 +1,8 @@
 object Form1: TForm1
   Left = 0
   Top = 0
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
   Caption = #1040#1074#1090#1086#1088#1080#1079#1072#1094#1080#1103
   ClientHeight = 262
   ClientWidth = 374
